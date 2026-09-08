@@ -8,6 +8,7 @@ import { ImTrophy } from "react-icons/im";
 import { PiRankingFill } from "react-icons/pi";
 import { FaRankingStar } from "react-icons/fa6";
 import { BsFillGearFill } from "react-icons/bs";
+import { RiAdminFill } from "react-icons/ri";
 import { ModalConfirm } from "@/components/ui/ModalConfirm";
 import Link from "next/link";
 import { useState } from "react";
@@ -90,13 +91,14 @@ export default function PopupMenu() {
 
         <div className="flex items-center text-[#ff0101e5] justify-between p-2 border-b border-[#d1cece44]">
           <PiRankingFill />
-          <li className="text-base">Indisponível</li>
+          <li className="text-base">Bloqueado</li>
           <IoIosArrowForward />
         </div>
 
-        <button className="text-blue-950 shadow-2xl bg-green-500 border border-green-300 rounded-md py-1">
-          Meu clube
-        </button>
+        <div className="flex text-yellow-400 items-center justify-center p-0.5 rounded-md gap-0.5 border bg-[#a120209c]">
+          <RiAdminFill />
+          <p>Administração</p>
+        </div>
 
         <p className="text-xs font-medium uppercase text-gray-500">
           Configurações

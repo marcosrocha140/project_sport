@@ -11,7 +11,7 @@ export function Modal({ open, onOpenChange, children }) {
           className="fixed z-4 left-28 top-1/2
           w-[60%] h-full max-w-md 
           -translate-x-1/2 -translate-y-1/2
-          rounded-lg bg-white shadow-lg
+          rounded-lg bg-gray-900 shadow-lg
         "
         >
           <Dialog.DialogTitle>{children}</Dialog.DialogTitle>

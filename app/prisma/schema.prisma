@@ -1,0 +1,28 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model clubes {
+  id               Int       @id @default(autoincrement())
+  nome             String    @db.VarChar(50)
+  logo             String    @db.VarChar(100)
+  categoria        String    @db.VarChar(50)
+  gender           String    @db.VarChar(50)
+  curtidas         Int?
+  criacao_do_clube DateTime  @db.Date
+  data_criacao     DateTime? @default(now()) @db.Timestamp(6)
+  cidade           String    @default("Quixadá") @db.VarChar(50)
+}
+
+model posts {
+  id           Int       @id @default(autoincrement())
+  titulo       String    @db.VarChar(255)
+  conteudo     String
+  imagem       String?   @db.VarChar(255)
+  data_criacao DateTime? @default(now()) @db.Timestamp(6)
+}

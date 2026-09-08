@@ -54,3 +54,86 @@ body {
   padding: 20px;
   border-radius: 8px;
 }
+
+/* Animação de Loading */
+@keyframes football-bounce {
+  0% {
+    transform: translate(-50%, 35px) rotate(0deg);
+  }
+
+  40% {
+    transform: translate(-50%, -85px) rotate(180deg);
+  }
+
+  65% {
+    transform: translate(-50%, 10px) rotate(290deg);
+  }
+
+  75% {
+    transform: translate(-50%, 35px) rotate(330deg)
+      scaleX(1.08) scaleY(0.92);
+  }
+
+  100% {
+    transform: translate(-50%, 35px) rotate(360deg);
+  }
+}
+
+@keyframes football-shadow {
+  0%,
+  100% {
+    transform: translateX(-50%) scaleX(1);
+    opacity: 0.3;
+  }
+
+  40% {
+    transform: translateX(-50%) scaleX(0.45);
+    opacity: 0.1;
+  }
+
+  65% {
+    transform: translateX(-50%) scaleX(0.75);
+    opacity: 0.2;
+  }
+
+  75% {
+    transform: translateX(-50%) scaleX(1.15);
+    opacity: 0.35;
+  }
+}
+
+.football-ball {
+  animation: football-bounce 1s infinite ease-in-out;
+}
+
+.football-shadow {
+  animation: football-shadow 1s infinite ease-in-out;
+}
+
+@keyframes loading-dot {
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+.loading-dot {
+  color: white;
+  animation: loading-dot 1s infinite;
+}
+
+.animation-delay-0 {
+  animation-delay: 0ms;
+}
+
+.animation-delay-150 {
+  animation-delay: 150ms;
+}
+
+.animation-delay-300 {
+  animation-delay: 300ms;
+}

@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { AiFillBell, AiOutlineMenu } from "react-icons/ai";
 import { FaSearch } from "react-icons/fa";
+import { GiSoccerBall } from "react-icons/gi";
 
 export function Navigation() {
 
@@ -11,10 +12,12 @@ export function Navigation() {
         
         <div className="flex gap-1 items-center">
           <img
-            className="w-20"
-            src="https://www.dropbox.com/scl/fi/d1yrcme97ehw7xdqaimls/447667706_337883669330952_8306200058527255297_n-removebg-preview.png?rlkey=pzwb8x5qdx2ubq0sed1cicoip&st=rwg43n6n&dl=1"
-            alt=""
+            className="w-20 p-1.5"
+            src="https://www.dropbox.com/scl/fi/cpnw0mduyyleazzd3zuew/logoAjustada-removebg-preview.png?rlkey=veukdos60rljaw0jtogmbwwe8&st=mqji30ab&dl=1"
+            alt="Logo App"
           />
+
+          <p className="flex items-center gap-0.5 bg-white text-[13px] px-0.5 uppercase rounded-xs font-extrabold text-green-950">Jogador</p>
 
           <h1 className="hidden md:block text-white font-bold text-2xl">
             Sport <span className="text-blue-400 font-light">Interior</span>
@@ -64,7 +67,7 @@ export function Navigation() {
           </Link>
           <img
             className="w-12 border border-green-900 rounded-full"
-            src="https://cdn-icons-png.flaticon.com/512/3541/3541871.png"
+            src="https://www.dropbox.com/scl/fi/89up32zkfux359nmiyk9g/weslen.jpg?rlkey=5meohc9qfw46gyq3m8dwg2syb&st=5r7eoekb&dl=1"
             alt="Foto"
           />
         </div>

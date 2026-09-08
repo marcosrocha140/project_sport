@@ -29,7 +29,7 @@ export function Support() {
             Sejam um sócio-torcedor e mostre ainda mais apoio ao seu clube
             favorito e concorra a recompensas.
           </p>
-          <button className="text-[#fffff8] border border-green-600 font-semibold bg-linear-to-r from-[#02530f] via-[#29d423] to-[#02530f] p-2 rounded-md flex items-center gap-1">
+          <button className="text-[#e3e3e4] text-[15px] border border-green-600 font-semibold bg-linear-to-r from-[#02530f] via-[#29d423] to-[#02530f] p-2 rounded-md flex items-center gap-1">
             <FaHandshake className="text-2xl" /> Ser Sócio torcedor
           </button>
         </div>

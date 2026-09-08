@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { IoMdFootball, IoIosArrowForward } from "react-icons/io";
+import { GiSoccerBall } from "react-icons/gi";
 import { FaVolleyballBall } from "react-icons/fa";
 
 interface CardTimesProps {
@@ -26,7 +27,7 @@ export function CardTeam({
             <div className="flex gap-1 items-center text-gray-400">
               <p className="text-[10px]">{teamCategory}</p>
               {teamCategory == "Futebol" ? (
-                <IoMdFootball className="text-xs" />
+                <GiSoccerBall className="text-xs" />
               ) : (
                 <>
                   <FaVolleyballBall className="text-xs" />

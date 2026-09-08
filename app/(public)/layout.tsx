@@ -11,7 +11,7 @@ export default function PublicLayout({
   return (
     <>
       <Navigation />
-      <main className="mt-16">{children}</main>
+        <main className="mt-16">{children}</main>
       <NavBottom/>
     </>
   );

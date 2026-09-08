@@ -24,7 +24,7 @@ export function SearchCardClub({clubImage, clubName, clubCity, clubCategory}:clu
           />
           <div className="flex flex-col">
             <div className="flex items-center gap-1">
-              <h2 className="font-bold [-webkit-text-stroke:0.6px_black]">
+              <h2 className="font-semibold text-green-400 uppercase ">
                 {clubName}
               </h2>
               <FaCheckCircle className="text-green-500 bg-white rounded-full text-[10px]" />
@@ -44,7 +44,7 @@ export function SearchCardClub({clubImage, clubName, clubCity, clubCategory}:clu
             </div>
           </div>
         </div>
-        <div className="bg-gradient-to-r text-[9px] p-1 flex items-center gap-1 from-[#6d6d6d] via-[#ebeaea] to-[#6d6d6d] border border-[#e4e5e6c2] rounded-sm font-semibold uppercase text-blue-950">
+        <div className="bg-gradient-to-r text-[9px] p-1 flex items-center gap-1 rounded-sm font-semibold uppercase text-blue-450">
         <p className="text-[11px]">Perfil</p>
         <IoIosArrowForward />
       </div>

@@ -40,10 +40,10 @@ export const teams = [
 
   {
     id: 6,
-    teamName: "Espinheiro E.C",
+    teamName: "Boa Vista R.C",
     teamCity: "Quixadá/CE",
     teamCategory: "Futebol",
-    teamImg: "https://www.dropbox.com/scl/fi/8rwhv63c9bvvhvrhz112b/espinheiro.png?rlkey=7ola7n24n7y9a4cyevbd7qcd6&st=zft0m0ke&dl=1"
+    teamImg: "https://www.dropbox.com/scl/fi/jwinbpf082eogvtian6tc/boavista.png?rlkey=w8bdo9x8gek3ouphu5hdesqru&st=98rfqrv9&dl=1"
   },
 
   {

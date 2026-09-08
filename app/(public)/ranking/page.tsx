@@ -1,7 +1,10 @@
-import { teams } from "@/app/data/teams";
+import { clubRepository } from "@/app/repositories/club.repository";
 import { ImArrowUp } from "react-icons/im";
 
-export default function RankingTimes() {
+export default async function RankingTimes() {
+
+  const clubes = await clubRepository.findAll();
+
   return (
     <div className="flex flex-col gap-2 p-2 mt-2 bg-center bg-[url('https://www.dropbox.com/scl/fi/v8ix80vbc2nzs1ryhe9jx/bg-ranking.png?rlkey=87zqpyn1g7bzvn3ip1ygupsjd&st=iw5ndgcw&dl=1')]">
       <div className="flex rounded-md justify-center items-center gap-2">
@@ -28,20 +31,20 @@ export default function RankingTimes() {
           <tr className="text-left border rounded-md">
             <th>#</th>
             <th>Time</th>
-            <th>PG</th>
             <th>V</th>
             <th>E</th>
             <th>D</th>
+            <th>PG</th>
           </tr>
         </thead>
         <tbody>
-          {teams.map((team) => (
-            <tr key={team.id} className="border bg-[#0f610c6c]">
-              <td className="border-r-1">{team.id}.</td>
-              <td className="flex items-center p-1">
+          {clubes.map((clube) => (
+            <tr key={clube.id} className="border bg-[#0f610c6c]">
+              <td className="border-r-1">{clube.id}</td>
+              <td className="flex items-center gap-1 p-1">
                 <ImArrowUp className="text-green-400" />
-                <img className="w-7" src={team.teamImg} alt="Foto do Clube" />
-                <p>{team.teamName}</p>
+                <img className="w-7" src={clube.logo} alt={`Imagem do clube ${clube.nome}`} />
+                <p>{clube.nome}</p>
               </td>
               <td>0</td>
               <td>0</td>
