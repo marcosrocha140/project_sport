@@ -8,12 +8,14 @@ export default function Card({
   imagem,
   titulo,
   conteudo,
+  data_criacao,
   author,
   authorImage
 }: {
   imagem: string;
   titulo: string;
   conteudo: string;
+  data_criacao: string;
   author: string;
   authorImage: string
 }) {
@@ -35,15 +37,15 @@ export default function Card({
           src='https://res.cloudinary.com/dq0dfseeu/image/upload/v1786117781/mr_r5o0ia.png'
           alt="Foto"
         />
-        <div className="flex gap-1 text-[12px]">
+        <div className="flex items-center gap-1 text-[12px]">
           <p className="flex gap-1 items-center font-semibold">Marcos Rocha <FaCheckCircle className="text-[10px] text-blue-500"/></p>
           |
-          <p className="text-gray-500">1 min</p>
+          <p className="text-gray-500 text-[9px]">{data_criacao} h</p>
         </div>
       </div>
       <p
         className={`text-gray-700 text-sm leading-relaxed transition-all duration-500 ${
-          expandido ? "max-h-[500px]" : "max-h-24 overflow-hidden"
+          expandido ? "max-h-125" : "max-h-24 overflow-hidden"
         }`}
       >
         {conteudo}

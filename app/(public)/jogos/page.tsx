@@ -50,29 +50,17 @@ export default function MatchesPage() {
         </div>
       </div>
       <CardMtaches
-        nameTeam1="Várzea da onça F.C"
+        nameTeam1="Várzea da onça E.C"
         nameTeam2="Vila Rica F.C"
-        team1Img="https://www.dropbox.com/scl/fi/880lfusv9hfcll7d6js6b/varzea-removebg-preview.png?rlkey=33bcmge5k56d8qg3p6zgn21io&st=a6x56894&dl=1"
-        team2Img="https://www.dropbox.com/scl/fi/o4z3w8gfrm7jhchuwdl5c/vilaRica.png?rlkey=ey32d3mf0kgky92l160ys71zg&st=tgyzq00u&dl=1"
-      />
-      <CardMtaches
-        nameTeam1="Cipó dos Migueís F.C"
-        nameTeam2="Milan F.C"
-        team1Img="https://www.dropbox.com/scl/fi/rt5i6l20cucoe37avtxxb/cipo.png?rlkey=84duq37vmb9vli760gtlebuq0&st=8k4l5ssq&dl=1"
-        team2Img="https://www.dropbox.com/scl/fi/2gsh8w5u8gmetx8tchrsl/milan.png?rlkey=tge6nchg2s3lleyf8ag9fc38b&st=b5hxlbhn&dl=1"
-      />
-      <CardMtaches
-        nameTeam1="Goiás E.C"
-        nameTeam2="Poço Verde F.C"
-        team1Img="https://www.dropbox.com/scl/fi/nloeq6qsfweyuze6z0rxd/goias.png?rlkey=pfdqhbuqs5g0qlrvoq374yken&st=m154q4ak&dl=1"
-        team2Img="https://www.dropbox.com/scl/fi/hmnr2zh0ker4l48utlkbg/Po-o.png?rlkey=5zsy39g3qs1hy6x51cv88p4qz&st=b6o4dc68&dl=1"
+        team1Img="https://res.cloudinary.com/dq0dfseeu/image/upload/v1776556360/varzea-removebg-preview_ahzxdw.png"
+        team2Img="https://res.cloudinary.com/dq0dfseeu/image/upload/v1785979149/vilarica_hqvlfq.png"
       />
 
       <CardMtaches
-        nameTeam1="Flacaracol F.C"
-        nameTeam2="Cipó dos Migueís F.C"
-        team1Img="https://www.dropbox.com/scl/fi/apkojx2dv0639pt30rx5t/flacaracol-removebg-preview.png?rlkey=lunaj91m6pdy88uox50htu61s&st=8pp0ipnw&dl=1"
-        team2Img="https://www.dropbox.com/scl/fi/rt5i6l20cucoe37avtxxb/cipo.png?rlkey=84duq37vmb9vli760gtlebuq0&st=hdchx4uw&dl=1"
+        nameTeam1="Campo Grande F.C"
+        nameTeam2="Atl Umarizeiro F.C"
+        team1Img="https://res.cloudinary.com/dq0dfseeu/image/upload/v1785979403/campoGrande_jrqot0.png"
+        team2Img="https://res.cloudinary.com/dq0dfseeu/image/upload/v1785979380/umarizeiro_udaeew.png"
       />
 
       <div className="flex text-gray-300 items-center gap-5 text-md justify-center">

@@ -22,14 +22,24 @@ export default async function HomePage() {
               Últimas Notícias
             </h2>
           </div>
-          
         </header>
 
         <hr className="border-black/20 dark:border-black/10" />
 
         <div className="flex flex-col gap-4 mt-6">
           {posts.map((post) => (
-            <Card key={post.id} {...post} />
+            <Card
+              key={post.id}
+              {...post}
+                data_criacao={post.data_criacao?.toLocaleString("pt-BR", {
+                day: "2-digit",
+                month: "2-digit",
+                year: "numeric",
+                hour: "2-digit",
+                minute: "2-digit",
+                hour12: false,
+              })}
+            />
           ))}
 
           {/* <aside className="hidden md:flex flex-col gap-2">

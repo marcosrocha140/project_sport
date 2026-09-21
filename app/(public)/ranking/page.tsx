@@ -7,14 +7,14 @@ export default async function RankingTimes() {
 
   return (
     <div className="flex flex-col gap-2 p-2 mt-2 bg-center bg-[url('https://www.dropbox.com/scl/fi/v8ix80vbc2nzs1ryhe9jx/bg-ranking.png?rlkey=87zqpyn1g7bzvn3ip1ygupsjd&st=iw5ndgcw&dl=1')]">
-      <div className="flex rounded-md justify-center items-center gap-2">
+      <div className="flex rounded-md justify-center items-center p-1.5 gap-2">
         <img
           className="w-12"
-          src="https://www.dropbox.com/scl/fi/3ir0ryfildmjuwdz287rh/ranking.png?rlkey=sv62yw3jqykfk8nbpb8mx2odf&st=xkv0938m&dl=1"
-          alt="Tarça Ranking"
+          src="https://res.cloudinary.com/dq0dfseeu/image/upload/v1789921824/logoRanking_tpxyrj.png"
+          alt="Imagem Ranking"
         />
-        <h2 className="text-2xl font-bold">Ranking de Clube</h2>
-        <select className="bg-[#073306] rounded-md p-1 border border-green-400">
+        <h2 className="text-xl text-amber-300 font-bold">Ranking de Clube</h2>
+        <select className="bg-[#073306] text-[17px] text-amber-300 rounded-md p-0.5 border border-amber-300">
           {/* <option value="">Selecione o Ano</option> */}
           <option value="2026">2026</option>
           <option value="2025">2025</option>

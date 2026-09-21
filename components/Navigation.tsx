@@ -13,11 +13,11 @@ export function Navigation() {
         <div className="flex gap-1 items-center">
           <img
             className="w-20 p-1.5"
-            src="https://www.dropbox.com/scl/fi/cpnw0mduyyleazzd3zuew/logoAjustada-removebg-preview.png?rlkey=veukdos60rljaw0jtogmbwwe8&st=mqji30ab&dl=1"
+            src="https://res.cloudinary.com/dq0dfseeu/image/upload/v1786118197/Logo_zj4dyx.png"
             alt="Logo App"
           />
 
-          <p className="flex items-center gap-0.5 bg-white text-[13px] px-0.5 uppercase rounded-xs font-extrabold text-green-950">Jogador</p>
+          <p className="flex items-center gap-0.5 bg-white text-[13px] px-0.5 uppercase rounded-xs font-extrabold text-green-950">Administrador</p>
 
           <h1 className="hidden md:block text-white font-bold text-2xl">
             Sport <span className="text-blue-400 font-light">Interior</span>
@@ -67,8 +67,8 @@ export function Navigation() {
           </Link>
           <img
             className="w-12 border border-green-900 rounded-full"
-            src="https://www.dropbox.com/scl/fi/89up32zkfux359nmiyk9g/weslen.jpg?rlkey=5meohc9qfw46gyq3m8dwg2syb&st=5r7eoekb&dl=1"
-            alt="Foto"
+            src="https://res.cloudinary.com/dq0dfseeu/image/upload/v1789921075/marcosRocha_qhktcs.png"
+            alt="Foto do usuário"
           />
         </div>
         <div className="hidden md:flex items-center justify-start pl-4 pr-2 py-1">
