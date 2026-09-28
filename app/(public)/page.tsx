@@ -4,10 +4,7 @@ import Highlights from "@/components/Highlights";
 import TopPlayers from "@/components/TopPlayers";
 import { CgFeed } from "react-icons/cg";
 
-import {
-  postRepository,
-  PostRepository,
-} from "../repositories/post.repository";
+import {postRepository} from "../repositories/post.repository";
 
 export default async function HomePage() {
   const posts = await postRepository.findAll();

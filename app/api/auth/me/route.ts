@@ -31,7 +31,10 @@ export async function GET() {
         nome: user.nome,
         email: user.email,
         tipo: user.tipo,
+        imagem: user.imagem,
 
     },
   });
 }
+
+

@@ -1,6 +1,8 @@
 import { cookies } from "next/headers";
 import { userService } from "../services/user.service";
 import { verifyToken } from "./auth-token";
+
+
 export async function getCurrentUserId() {
     const cookieStore = await cookies();
 
@@ -36,4 +38,15 @@ export async function requireAuth() {
   }
 
   return user;
+}
+
+
+export async function requireRole(role: string) {
+    const user = await requireAuth();
+
+    if(user.tipo !== role){
+        throw new Error("Sem premissão");
+    }
+    
+    return user;
 }

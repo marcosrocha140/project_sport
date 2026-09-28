@@ -9,9 +9,12 @@ import { FaCircleCheck } from "react-icons/fa6";
 import { IoIosArrowForward } from "react-icons/io";
 import { TbCropPortraitFilled } from "react-icons/tb";
 import { IoMdPhotos } from "react-icons/io";
+import { RiAdminFill } from "react-icons/ri";
 import { BackItem } from "@/components/ui/BackItem";
+import { requireAuth } from "@/app/lib/auth";
 
-export default function Profile() {
+export default async function Profile() {
+  const user = await requireAuth();
   return (
     <div className="h-svh bg-[#060d0c]">
       <div className="flex items-center">
@@ -23,33 +26,44 @@ export default function Profile() {
           <div>
             <img
               className="w-32 rounded-full border border-green-400"
-              src="https://www.dropbox.com/scl/fi/gdrwuchhl0lwowvwrqrqs/AlanL.png?rlkey=qbywsrh60xkism6xdbo96n4ty&st=77ie5sxh&dl=1"
-              alt="Imagem Alan"
+              src={user.imagem}
+              alt={`Foto ${user.nome}`}
             />
           </div>
 
           <div className="w-full">
             <div>
-              <h2 className="text-2xl items-center font-semibold flex gap-1">
-                Alan Lima{" "}
+              <h2 className="text-xl items-center font-semibold flex gap-1">
+                {user.nome}{" "}
                 <FaCircleCheck className="text-[11px] text-green-400 bg-white rounded-full" />
               </h2>
-              <p className="flex text-[13px] items-center gap-0.5 text-green-500">
-                <GiSoccerField />
-                Atacante
-              </p>
+              
+              {
+                user.tipo === "Administrador" ? (
+                  <p className="flex text-[13px] items-center gap-0.5 text-green-500">
+                    <RiAdminFill />
+                    {user.tipo}
+                  </p>
+                ) : (
+                  <p className="flex text-[13px] items-center gap-0.5 text-green-500">
+                    <GiSoccerField />
+                    L.Direito
+                  </p>
+                )
+              }
+
             </div>
             <div className="relative w-full gap-0.5 items-end">
               <div>
                 <p className="flex text-gray-300 text-[13px] gap-0.5 items-center">
                   <MdOutlineMail className="text-green-400" />{" "}
-                  alan.lima@gmail.com
+                  {user.email}
                 </p>
                 <p className="flex text-gray-300 text-[13px] gap-0.5 items-center">
                   <GiPositionMarker className="text-green-400" /> Quixadá-CE
                 </p>
                 <p className="flex text-gray-300 text-[13px] gap-0.5 items-center">
-                  <FaInstagram className="text-green-400" /> alanlima.10
+                  <FaInstagram className="text-green-400" /> wkerlyson_
                 </p>
               </div>
               <p className="absolute text-[11px] bottom-0 right-0 rounded-md flex items-center gap-0.5 text-green-400 border-1 border-green-500 py-1 px-1">
@@ -63,17 +77,17 @@ export default function Profile() {
         <div className="flex items-center p-1 justify-between rounded-md bg-[#051e14]">
           <div className="flex items-center">
             <img
-              className="w-14"
-              src="https://www.dropbox.com/scl/fi/2gsh8w5u8gmetx8tchrsl/milan.png?rlkey=tge6nchg2s3lleyf8ag9fc38b&st=nf2jxmy3&dl=1"
+              className="w-12"
+              src="https://res.cloudinary.com/dq0dfseeu/image/upload/v1776556360/varzea-removebg-preview_ahzxdw.png"
               alt="Logo time"
             />
             <div>
-              <h2 className="uppercase">A.E Milan F.C</h2>
+              <h2 className="uppercase text-[14px]">Várzea da Onça E.C</h2>
               <p className="font-light text-sm text-green-400">Clube atual</p>
             </div>
           </div>
           <p className="ml-2 text-green-500 flex items-center gap-0.5 text-[11px]">
-            Ver perfil do clube
+            Perfil do clube
             <IoIosArrowForward />
           </p>
         </div>
@@ -81,24 +95,24 @@ export default function Profile() {
         <p className="font-light text-sm uppercase text-gray-400">Desempenho</p>
         <div className="flex overflow-x-auto gap-0.5">
           <div className="p-2 text-center border border-green-900 bg-[#051e14]">
-            <p className="text-xl">18</p>
+            <p className="text-xl">0</p>
             <p className="text-sm text-gray-400">Jogos</p>
           </div>
 
           <div className="p-2 text-center border border-green-900 bg-[#051e14]">
-            <p className="text-xl">11</p>
+            <p className="text-xl">0</p>
             <p className="text-sm text-gray-400">Gols</p>
           </div>
 
           <div className="p-2 text-center border border-green-900 bg-[#051e14]">
-            <p className="text-xl">7</p>
+            <p className="text-xl">0</p>
             <p className="text-sm text-gray-400">Assistência</p>
           </div>
 
           <div className="p-2 text-center border border-green-900 bg-[#051e14]">
             <div className="flex justify-center gap-1.5">
               <p className="text-xl flex gap-0.5 items-center">
-                <TbCropPortraitFilled className="text-yellow-300" /> 3
+                <TbCropPortraitFilled className="text-yellow-300" /> 0
               </p>
               <p className="text-xl flex gap-0.5 items-center">
                 <TbCropPortraitFilled className="text-red-600" /> 0
@@ -121,19 +135,19 @@ export default function Profile() {
             <tr className="flex p-2 border-b border-[#ffffff1f] justify-between">
               <td className="text-gray-400">Idade</td>
               <td>
-                <strong>19</strong>
+                <strong>33</strong>
               </td>
             </tr>
             <tr className="flex p-2 border-b border-[#ffffff1f] justify-between">
               <td className="text-gray-400">Altura</td>
               <td>
-                <strong>1,70 m</strong>
+                <strong>1,65 m</strong>
               </td>
             </tr>
             <tr className="flex p-2 border-b border-[#ffffff1f] justify-between">
               <td className="text-gray-400">Peso</td>
               <td>
-                <strong>72 kg</strong>
+                <strong>74 kg</strong>
               </td>
             </tr>
             <tr className="flex p-2 justify-between">
@@ -149,12 +163,12 @@ export default function Profile() {
         </p>
         <div>
           <div className="grid grid-cols-3 gap-1">
-            <img className="w-32 border" src="https://www.dropbox.com/scl/fi/x7c1vmy6c2a2aeu9zrcpm/BannerFoto.png?rlkey=5uzffvmm4cstx0zrh5e5in0by&st=m7c24pre&dl=1" alt="Imagem 1" />
-            <img className="w-32 border" src="https://www.dropbox.com/scl/fi/x7c1vmy6c2a2aeu9zrcpm/BannerFoto.png?rlkey=5uzffvmm4cstx0zrh5e5in0by&st=m7c24pre&dl=1" alt="Imagem 2" />
-            <img className="w-32 border" src="https://www.dropbox.com/scl/fi/x7c1vmy6c2a2aeu9zrcpm/BannerFoto.png?rlkey=5uzffvmm4cstx0zrh5e5in0by&st=m7c24pre&dl=1" alt="Imagem 3" />
-            <img className="w-32 border" src="https://www.dropbox.com/scl/fi/x7c1vmy6c2a2aeu9zrcpm/BannerFoto.png?rlkey=5uzffvmm4cstx0zrh5e5in0by&st=m7c24pre&dl=1" alt="Imagem 4" />
-            <img className="w-32 border" src="https://www.dropbox.com/scl/fi/x7c1vmy6c2a2aeu9zrcpm/BannerFoto.png?rlkey=5uzffvmm4cstx0zrh5e5in0by&st=m7c24pre&dl=1" alt="Imagem 5" />
-            <img className="w-32 border" src="https://www.dropbox.com/scl/fi/x7c1vmy6c2a2aeu9zrcpm/BannerFoto.png?rlkey=5uzffvmm4cstx0zrh5e5in0by&st=m7c24pre&dl=1" alt="Imagem 6" />
+            <img className="w-32 border" src="https://res.cloudinary.com/dq0dfseeu/image/upload/v1790529354/BannerFoto_ieynww.png" alt="Imagem 1" />
+            <img className="w-32 border" src="https://res.cloudinary.com/dq0dfseeu/image/upload/v1790529354/BannerFoto_ieynww.png" alt="Imagem 2" />
+            <img className="w-32 border" src="https://res.cloudinary.com/dq0dfseeu/image/upload/v1790529354/BannerFoto_ieynww.png" alt="Imagem 3" />
+            <img className="w-32 border" src="https://res.cloudinary.com/dq0dfseeu/image/upload/v1790529354/BannerFoto_ieynww.png" alt="Imagem 4" />
+            <img className="w-32 border" src="https://res.cloudinary.com/dq0dfseeu/image/upload/v1790529354/BannerFoto_ieynww.png" alt="Imagem 5" />
+            <img className="w-32 border" src="https://res.cloudinary.com/dq0dfseeu/image/upload/v1790529354/BannerFoto_ieynww.png" alt="Imagem 6" />
           </div>
         </div>
       </div>

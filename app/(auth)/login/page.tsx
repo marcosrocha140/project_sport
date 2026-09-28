@@ -48,7 +48,7 @@ export default function LoginPage() {
     <div className="flex min-h-full flex-col justify-center px-5 py-12 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
         <img
-          src="https://www.dropbox.com/scl/fi/cpnw0mduyyleazzd3zuew/LogoAjustada-removebg-preview.png?rlkey=veukdos60rljaw0jtogmbwwe8&st=ohgj7rgd&dl=1"
+          src="https://res.cloudinary.com/dq0dfseeu/image/upload/v1786118197/Logo_zj4dyx.png"
           alt="Logo Sport"
           className="mx-auto w-28"
         />

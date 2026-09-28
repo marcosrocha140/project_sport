@@ -10,39 +10,63 @@ import { FaRankingStar } from "react-icons/fa6";
 import { BsFillGearFill } from "react-icons/bs";
 import { RiAdminFill } from "react-icons/ri";
 import { ModalConfirm } from "@/components/ui/ModalConfirm";
+import ButtonLogout from "./ui/ButtonLogout";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { requireAuth } from "@/app/lib/auth";
 
 export default function PopupMenu() {
   const [open, setOpen] = useState(false);
+  const [user, setUser] = useState<any>(null);
+
+  useEffect(() => {
+    async function userData() {
+      try {
+        const response = await fetch("/api/auth/me");
+
+        if (!response.ok) {
+          setUser(null);
+          return;
+        }
+
+        const user = await response.json();
+        setUser(user);
+      } catch (error) {
+        console.error(error);
+        setUser(null);
+      }
+    }
+
+    userData();
+  }, []);
 
   return (
     <div className="absolute left-0 block md:hidden w-full h-full  bg-[url(https://www.dropbox.com/scl/fi/mnge3sxeib8w81djdfs1v/popup2.png?rlkey=1tnm1qy7r5c2x9a2r8q3z2xd5&st=psdytx8v&dl=1)] p-2 top-0 left-0">
       <ul className="font-semibold flex flex-col text-xl gap-2">
         <div className="flex items-center">
           <img
-            className="w-20"
-            src="https://www.dropbox.com/scl/fi/d1yrcme97ehw7xdqaimls/447667706_337883669330952_8306200058527255297_n-removebg-preview.png?rlkey=pzwb8x5qdx2ubq0sed1cicoip&st=rwg43n6n&dl=1"
+            className="w-16"
+            src="https://res.cloudinary.com/dq0dfseeu/image/upload/v1786118197/Logo_zj4dyx.png"
             alt="Logo Sport Interior"
           />
-          <div className="flex flex-col">
+          {/* <div className="flex flex-col">
             <h1 className="text-2xl text-white uppercase">Sport</h1>
             <p className="text-green-600 text-xs font-medium uppercase italic">
               Interior
             </p>
-          </div>
+          </div> */}
         </div>
 
         <div className="flex gap-2 text-white">
           <img
             className="w-10 border border-gray-300 rounded-full"
-            src="https://cdn-icons-png.flaticon.com/512/3541/3541871.png"
+            src={user?.user?.imagem}
             alt="Foto"
           />
           <div className="flex flex-col">
             <div className="flex gap-1 items-center">
-              <p className="text-[17px]">Convidado</p>
-              <FaCheckCircle className="text-blue-400 bg-white rounded-full text-xs" />
+              <p className="text-[15px]">{user?.user?.nome}</p>
+              <FaCheckCircle className="text-blue-400 bg-white rounded-full text-[10px]" />
             </div>
             <Link href="profile" className="text-xs font-medium text-blue-400">
               Ver perfil
@@ -95,10 +119,14 @@ export default function PopupMenu() {
           <IoIosArrowForward />
         </div>
 
-        <div className="flex text-yellow-400 items-center justify-center p-0.5 rounded-md gap-0.5 border bg-[#a120209c]">
-          <RiAdminFill />
-          <p>Administração</p>
-        </div>
+        {
+          user?.user?.tipo === "Administrador" ? (
+            <div className="flex text-sm text-green-300 items-center justify-center py-1 rounded-xs gap-0.5 border bg-[#03331bf5]">
+              <RiAdminFill />
+              <p>Administração</p>
+            </div>
+          ) : <></>
+        }
 
         <p className="text-xs font-medium uppercase text-gray-500">
           Configurações
@@ -109,10 +137,9 @@ export default function PopupMenu() {
         </div>
 
         <div
-          onClick={() => setOpen(true)}
           className="flex items-center text-gray-300 gap-2 p-2 border-b border-[#d1cece44]"
         >
-          <IoIosExit />
+          <ButtonLogout />
           <li className="text-base font-medium">Sair</li>
         </div>
       </ul>

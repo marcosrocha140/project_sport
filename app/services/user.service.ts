@@ -1,12 +1,15 @@
 import { userRepository } from "../repositories/user.repository";
 import bcrypt from "bcrypt";
 import { LoginUserSchemas } from "../schemas/user.schema";
+
+
 export class UserService {
   async register(data: {
     nome: string;
     email: string;
     senha: string;
     tipo: string;
+    imagem: string;
   }) {
     const existingUser = await userRepository.findByEmail(data.email);
 
@@ -20,6 +23,7 @@ export class UserService {
       nome: data.nome,
       email: data.email,
       senha: passwordEncrypted,
+      imagem: data.imagem
     });
 
     return user;

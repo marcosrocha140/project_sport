@@ -26,6 +26,7 @@ export async function POST(request: Request) {
         nome: user.nome,
         email: user.email,
         tipo: user.tipo,
+        imagem: user.imagem,
       },
     });
 

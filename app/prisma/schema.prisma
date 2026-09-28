@@ -34,4 +34,5 @@ model usuarios {
   senha        String    @db.VarChar(255)
   tipo         String    @default("USER") @db.VarChar(20)
   data_criacao DateTime? @default(now()) @db.Timestamp(6)
+  imagem       String?   @default("https://res.cloudinary.com/dq0dfseeu/image/upload/v1790023070/avatar_1_engc0e.png")
 }

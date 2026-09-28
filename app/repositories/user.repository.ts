@@ -22,6 +22,7 @@ export class UserRepository {
     email: string;
     senha: string;
     tipo?: string;
+    imagem: string;
   }){
     return await prisma.usuarios.create({
         data:{
@@ -29,6 +30,7 @@ export class UserRepository {
             email: data.email,
             senha: data.senha,
             tipo: data.tipo,
+            imagem: data.imagem,
         },
     });
   }

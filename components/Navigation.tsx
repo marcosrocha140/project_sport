@@ -1,15 +1,14 @@
-"use client";
 import Link from "next/link";
+import { requireAuth } from "@/app/lib/auth";
 import { AiFillBell, AiOutlineMenu } from "react-icons/ai";
 import { FaSearch } from "react-icons/fa";
-import { GiSoccerBall } from "react-icons/gi";
 
-export function Navigation() {
+export async function Navigation() {
+  const user = await requireAuth();
 
   return (
     <>
       <nav className="w-full fixed top-0 left-0 z-3 h-18 sm:w-10/12 lg:w-full mx-auto flex items-center justify-between bg-[url('https://t4.ftcdn.net/jpg/09/24/25/73/360_F_924257314_9SS11wm6mf3s9uWMg8pZuCBNveZb3Xy2.jpg')] bg-black/80 p-1 text-white dark:text-black border-b border-green-600/20 dark:border-green-600/20 shadow-lg shadow-blue-400/20">
-        
         <div className="flex gap-1 items-center">
           <img
             className="w-20 p-1.5"
@@ -17,7 +16,13 @@ export function Navigation() {
             alt="Logo App"
           />
 
-          <p className="flex items-center gap-0.5 bg-white text-[13px] px-0.5 uppercase rounded-xs font-extrabold text-green-950">Administrador</p>
+          {user.tipo != "USER" ? (
+            <p className="flex items-center gap-0.5 bg-white text-[13px] px-0.5 uppercase rounded-xs font-extrabold text-green-950">
+              {user.tipo}
+            </p>
+          ) : (
+            <></>
+          )}
 
           <h1 className="hidden md:block text-white font-bold text-2xl">
             Sport <span className="text-blue-400 font-light">Interior</span>
@@ -58,17 +63,20 @@ export function Navigation() {
         </div>
 
         <div className="block md:hidden flex items-center gap-4">
-          <Link href='/search'>
+          <Link href="/search">
             <FaSearch className="text-gray-300 text-2xl" />
           </Link>
+          
           <Link href="/notifications" className="relative">
             <AiFillBell className="text-gray-300 text-2xl" />
-            <p className="absolute text-center text-sm h-4 w-4 bg-red-600 text-white rounded-full top-0 right-0 font-semibold">4</p>
+            <p className="absolute text-center text-sm h-4 w-4 bg-red-600 text-white rounded-full top-0 right-0 font-semibold">
+              4
+            </p>
           </Link>
           <img
             className="w-12 border border-green-900 rounded-full"
-            src="https://res.cloudinary.com/dq0dfseeu/image/upload/v1789921075/marcosRocha_qhktcs.png"
-            alt="Foto do usuário"
+            src={user.imagem}
+            alt={`Foto do {user.nome}`}
           />
         </div>
         <div className="hidden md:flex items-center justify-start pl-4 pr-2 py-1">
