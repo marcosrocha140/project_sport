@@ -45,9 +45,9 @@ export default async function Profile() {
                     {user.tipo}
                   </p>
                 ) : (
-                  <p className="flex text-[13px] items-center gap-0.5 text-green-500">
+                  <p className="flex text-[12px] items-center gap-0.5 text-green-500">
                     <GiSoccerField />
-                    L.Direito
+                    L. Direito
                   </p>
                 )
               }
@@ -74,7 +74,7 @@ export default async function Profile() {
           </div>
         </div>
 
-        <div className="flex items-center p-1 justify-between rounded-md bg-[#051e14]">
+        <div className="flex items-center p-1 border border-green-900 justify-between rounded-md bg-[#051e14]">
           <div className="flex items-center">
             <img
               className="w-12"
@@ -82,7 +82,7 @@ export default async function Profile() {
               alt="Logo time"
             />
             <div>
-              <h2 className="uppercase text-[14px]">Várzea da Onça E.C</h2>
+              <h2 className="flex items-center gap-1 uppercase text-[14px]">Várzea da Onça E.C<FaCircleCheck className="text-[9px] text-blue-500 bg-white rounded-full" /></h2>          
               <p className="font-light text-sm text-green-400">Clube atual</p>
             </div>
           </div>

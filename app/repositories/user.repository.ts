@@ -14,6 +14,7 @@ export class UserRepository {
       where: {
         id,
       },
+      
     });
   }
 

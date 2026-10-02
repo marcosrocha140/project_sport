@@ -44,6 +44,10 @@ export async function requireAuth() {
 export async function requireRole(role: string) {
     const user = await requireAuth();
 
+    console.log("USUÁRIO:", user);
+    console.log("TIPO DO USUÁRIO:", user.tipo);
+    console.log("TIPO ESPERADO:", role);
+
     if(user.tipo !== role){
         throw new Error("Sem premissão");
     }

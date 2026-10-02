@@ -3,11 +3,13 @@ import { FootballLoader } from "@/components/FootballLoader";
 import Highlights from "@/components/Highlights";
 import TopPlayers from "@/components/TopPlayers";
 import { CgFeed } from "react-icons/cg";
+import { requireAuth } from "../lib/auth";
 
 import {postRepository} from "../repositories/post.repository";
 
 export default async function HomePage() {
   const posts = await postRepository.findAll();
+  const user = await requireAuth();
 
   return (
     <main className="min-h-screen mt-15 pt-5 bg-[url('https://www.dropbox.com/scl/fi/v8ix80vbc2nzs1ryhe9jx/bg-ranking.png?rlkey=87zqpyn1g7bzvn3ip1ygupsjd&st=4yq3x35n&dl=1')]">
@@ -27,6 +29,7 @@ export default async function HomePage() {
           {posts.map((post) => (
             <Card
               key={post.id}
+              imagemUserComment={user.imagem}
               {...post}
                 data_criacao={post.data_criacao?.toLocaleString("pt-BR", {
                 day: "2-digit",
@@ -37,6 +40,7 @@ export default async function HomePage() {
                 hour12: false,
               })}
             />
+            
           ))}
 
           {/* <aside className="hidden md:flex flex-col gap-2">

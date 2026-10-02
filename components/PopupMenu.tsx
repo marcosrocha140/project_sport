@@ -41,20 +41,20 @@ export default function PopupMenu() {
   }, []);
 
   return (
-    <div className="absolute left-0 block md:hidden w-full h-full  bg-[url(https://www.dropbox.com/scl/fi/mnge3sxeib8w81djdfs1v/popup2.png?rlkey=1tnm1qy7r5c2x9a2r8q3z2xd5&st=psdytx8v&dl=1)] p-2 top-0 left-0">
+    <div className="absolute left-0 block md:hidden w-full h-full  bg-[url(https://res.cloudinary.com/dq0dfseeu/image/upload/v1790688189/popupBg_ny774f.png)] p-2 top-0 left-0">
       <ul className="font-semibold flex flex-col text-xl gap-2">
         <div className="flex items-center">
-          <img
+          {/* <img
             className="w-16"
             src="https://res.cloudinary.com/dq0dfseeu/image/upload/v1786118197/Logo_zj4dyx.png"
             alt="Logo Sport Interior"
-          />
-          {/* <div className="flex flex-col">
-            <h1 className="text-2xl text-white uppercase">Sport</h1>
+          /> */}
+          <div className="flex flex-col">
+            <h1 className="text-2xl text-white uppercase">Esporte</h1>
             <p className="text-green-600 text-xs font-medium uppercase italic">
               Interior
             </p>
-          </div> */}
+          </div>
         </div>
 
         <div className="flex gap-2 text-white">
@@ -81,7 +81,7 @@ export default function PopupMenu() {
         </p>
 
         <Link
-          href="/campeonatos"
+          href="#"
           className="flex items-center font-light text-[#f7f7f73d] justify-between p-2 border-b border-[#d1cece44]"
         >
           <ImTrophy />
@@ -90,7 +90,7 @@ export default function PopupMenu() {
         </Link>
 
         <Link
-          href="/jogos"
+          href="#"
           className="flex items-center font-light text-[#f7f7f73d] justify-between p-2 border-b border-[#d1cece44]"
         >
           <IoMdFootball />
@@ -99,7 +99,7 @@ export default function PopupMenu() {
         </Link>
 
         <Link
-          href="/times"
+          href="#"
           className="flex items-center font-light text-[#f7f7f73d] justify-between p-2 border-b border-[#d1cece44]"
         >
           <MdPeopleAlt />
@@ -113,9 +113,9 @@ export default function PopupMenu() {
           <IoIosArrowForward />
         </div>
 
-        <div className="flex items-center text-[#ff0101e5] justify-between p-2 border-b border-[#d1cece44]">
+        <div className="flex items-center font-light text-[#f7f7f73d] justify-between p-2 border-b border-[#d1cece44]">
           <PiRankingFill />
-          <li className="text-base">Bloqueado</li>
+          <li className="text-base">Indisponível</li>
           <IoIosArrowForward />
         </div>
 
