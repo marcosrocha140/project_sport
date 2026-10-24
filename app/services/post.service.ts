@@ -2,8 +2,8 @@ import { postRepository } from "../repositories/post.repository";
 import { CreatePostInput } from "../schemas/post.schema";
 
 export class PostService{
-    async create(data: CreatePostInput){
-        return postRepository.create(data);
+    async create(data: CreatePostInput, autorId: number){
+        return postRepository.create({...data, autor_id: autorId});
     }
 
     async findAll(){

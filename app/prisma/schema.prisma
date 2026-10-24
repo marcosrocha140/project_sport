@@ -7,17 +7,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model posts {
-  id           Int       @id @default(autoincrement())
-  titulo       String    @db.VarChar(255)
-  conteudo     String
-  imagem       String?   @db.VarChar(255)
-  data_criacao DateTime? @default(now()) @db.Timestamp(6)
-
-  autor_id     Int
-  autor        usuarios      @relation(fields: [autor_id], references: [id])
-}
-
 model clubes {
   id               Int       @id @default(autoincrement())
   nome             String    @db.VarChar(50)
@@ -28,7 +17,22 @@ model clubes {
   criacao_do_clube DateTime  @db.Date
   data_criacao     DateTime? @default(now()) @db.Timestamp(6)
   cidade           String    @default("Quixadá") @db.VarChar(50)
+}
 
+model posicao {
+  id    Int    @id @default(autoincrement())
+  nome  String @db.VarChar(50)
+  sigla String @db.VarChar(5)
+}
+
+model posts {
+  id           Int       @id @default(autoincrement())
+  titulo       String    @db.VarChar(255)
+  conteudo     String
+  imagem       String?   @db.VarChar(255)
+  data_criacao DateTime? @default(now()) @db.Timestamp(6)
+  autor_id     Int
+  autor        usuarios  @relation(fields: [autor_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
 }
 
 model usuarios {
@@ -39,6 +43,5 @@ model usuarios {
   tipo         String    @default("USER") @db.VarChar(20)
   data_criacao DateTime? @default(now()) @db.Timestamp(6)
   imagem       String?   @default("https://res.cloudinary.com/dq0dfseeu/image/upload/v1790023070/avatar_1_engc0e.png")
-
   posts        posts[]
 }

@@ -4,23 +4,24 @@ import Image from "next/image";
 import { useState } from "react";
 import { Reaction } from "./ui/Reaction";
 import { FaArrowUp } from "react-icons/fa6";
+import { IoMdMore } from "react-icons/io";
 
 export default function Card({
   imagem,
   titulo,
   conteudo,
   data_criacao,
-  author,
-  authorImage,
+  autor,
+  autorImage,
   imagemUserComment
 }: {
   imagem: string;
   titulo: string;
   conteudo: string;
   data_criacao: string;
-  author: string;
-  authorImage: string
-  imagemUserComment: string
+  autor: string;
+  autorImage: string;
+  imagemUserComment: string;
 }) {
   const [expandido, setExpandido] = useState(false);
 
@@ -37,13 +38,13 @@ export default function Card({
       <div className="flex gap-1 items-center">
         <img
           className="w-4 rounded-full"
-          src='https://res.cloudinary.com/dq0dfseeu/image/upload/v1789921075/marcosRocha_qhktcs.png'
+          src={autorImage}
           alt="Foto autor publicação"
         />
         <div className="flex items-center gap-1 text-[12px]">
-          <p className="flex gap-1 items-center font-semibold">Marcos Rocha <FaCheckCircle className="text-[10px] text-blue-500"/></p>
+          <p className="flex gap-1 items-center font-semibold">{autor} <FaCheckCircle className="text-[8px] text-blue-500"/></p>
           |
-          <p className="text-gray-500 text-[9px]">{data_criacao} h</p>
+          <p className="text-gray-500 text-[9px]">{data_criacao}</p>
         </div>
       </div>
       <p
@@ -64,20 +65,22 @@ export default function Card({
       <hr className="text-[#7c7b7b2f]" />
       <Reaction />
       {/* Sessão de comentarios */}
-      <section className="flex items-center gap-1 p-1 bg-[#ebe6e6] rounded-md">
+      <section className="flex items-center justify-between gap-1 p-1 bg-[#ebe6e6] rounded-md">
         <img className="w-10 h-10 rounded-full border" src="https://res.cloudinary.com/dq0dfseeu/image/upload/v1790954012/wedson_ouklu4.png" alt="foto do usuario" />
         <div>
-          <p className="text-xs font-semibold">Wedson Ferreira</p>
+          <p className="text-xs font-semibold">Wedson Ferreira <span className="text-[9px] font-medium text-gray-600">24 min</span></p>
           <p className="text-xs">App muito bom esse marcos é fera no que faz sou fan demais dele</p>
         </div>
+        <IoMdMore className="text-xl"/>
       </section>
 
-      <section className="flex items-center gap-1 p-1 bg-[#ebe6e6] rounded-md">
+      <section className="flex items-center justify-between gap-1 p-1 bg-[#ebe6e6] rounded-md">
         <img className="w-10 h-10 rounded-full border" src="https://res.cloudinary.com/dq0dfseeu/image/upload/v1790954438/hitimmm_wgmoni.png" alt="foto do usuario" />
         <div>
-          <p className="text-xs font-semibold">Hytalo Souza</p>
+          <p className="text-xs font-semibold">Hitalo Sousa <span className="text-[9px] font-medium text-gray-600">1 h</span></p>
           <p className="text-xs">Esse cara é muito bom viu, melhor programador que já vi</p>
         </div>
+        <IoMdMore className="text-xl"/>
       </section>
       <div className="flex gap-1">
         <img className="w-9 h-9 rounded-full" src={imagemUserComment} alt="Foto do usuario" />

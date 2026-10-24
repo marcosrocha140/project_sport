@@ -31,13 +31,15 @@ export default async function HomePage() {
               key={post.id}
               imagemUserComment={user.imagem}
               {...post}
-                data_criacao={post.data_criacao?.toLocaleString("pt-BR", {
-                day: "2-digit",
-                month: "2-digit",
-                year: "numeric",
-                hour: "2-digit",
-                minute: "2-digit",
-                hour12: false,
+              autor={post.autor.nome}
+              autorImage={post.autor.imagem}
+              data_criacao={post.data_criacao?.toLocaleString("pt-BR", {
+              day: "2-digit",
+              month: "2-digit",
+              year: "numeric",
+              hour: "2-digit",
+              minute: "2-digit",
+              hour12: false,
               })}
             />
             

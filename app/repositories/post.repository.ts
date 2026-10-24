@@ -8,6 +8,9 @@ export class PostRepository {
       orderBy: {
         titulo: "asc",
       },
+      include: {
+        autor: true,
+      },
     });
   }
 
@@ -16,19 +19,28 @@ export class PostRepository {
       where: {
         id,
       },
+      include:{
+        autor: {
+          select: {
+            nome: true
+          }
+        }
+      }
     });
   }
   
   async create(data:{
     titulo: string,
     conteudo: string,
-    imagem?: string
+    imagem?: string,
+    autor_id: number
   }) {
     return prisma.posts.create({
       data:{
         titulo: data.titulo,
         conteudo: data.conteudo,
-        imagem: data.imagem
+        imagem: data.imagem,
+        autor_id: data.autor_id
       }
     })
   }

@@ -28,7 +28,7 @@ export async function POST(request: Request) {
       );
     }
 
-    const post = await postRepository.create(result.data);
+    const post = await postRepository.create(result.data, user.id);
 
     return NextResponse.json("Dados Enviados!", { status: 201 });
   } catch (error) {
