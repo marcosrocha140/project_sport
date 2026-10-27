@@ -4,18 +4,20 @@ import { FaGear } from "react-icons/fa6";
 import { FaTrophy } from "react-icons/fa";
 import { FaHandshakeSimple } from "react-icons/fa6";
 import { GiGloves } from "react-icons/gi";
+import MatchCard from "@/components/MatchCard";
 
 export default function MatchesPage() {
   return (
     <div className="flex flex-col p-2 gap-2 h-[100vh] bg-cover bg-[url('https://www.dropbox.com/scl/fi/6fartkt3soofl9buc2if6/bg-mobile.png?rlkey=5r4g2w53uzkrfx7fh89x599og&st=dqfja6s7&dl=1')]">
-      <div className="mb-1 border-b-1 border-[#fff4]">
-        <h2 className="text-2xl md:text-4xl font-semibold">
-          Jogos <span className="font-light text-blue-400">Marcados</span>
-        </h2>
-        <p className="text-sm md:text-base">
-          Acompanhe os jogos amadores e profissionais
-        </p>
-      </div>
+      <div>
+          <h1 className="text-2xl font-extrabold text-white sm:text-3xl">
+            Jogos <span className="text-emerald-400">Marcados</span>
+          </h1>
+
+          <p className="mt-1 text-sm text-gray-400">
+            Acompanhe os jogos amadores e profissionais
+          </p>
+        </div>
 
       <ul className="flex items-center gap-2 justify-between overflow-x-auto whitespace-nowrap">
         <li className="font-bold text-blue-500 border-b-2">Hoje</li>
@@ -49,19 +51,27 @@ export default function MatchesPage() {
           <p>Amistoso</p>
         </div>
       </div>
-      <CardMtaches
-        nameTeam1="Várzea da onça E.C"
-        nameTeam2="Vila Rica F.C"
-        team1Img="https://res.cloudinary.com/dq0dfseeu/image/upload/v1776556360/varzea-removebg-preview_ahzxdw.png"
-        team2Img="https://res.cloudinary.com/dq0dfseeu/image/upload/v1785979149/vilarica_hqvlfq.png"
-      />
+      <MatchCard 
+      competition="Campeonato Distrital"
+      homeTeam="Várzea da onça E.C"
+      homeLogo="https://res.cloudinary.com/dq0dfseeu/image/upload/v1776556360/varzea-removebg-preview_ahzxdw.png"
+      homeWins={0}
+      homeScore={0}
+      awayTeam="Vila Rica F.C"
+      awayLogo="https://res.cloudinary.com/dq0dfseeu/image/upload/v1785979149/vilarica_hqvlfq.png"
+      awayWins={0}
+      awayScore={0}/>
 
-      <CardMtaches
-        nameTeam1="Campo Grande F.C"
-        nameTeam2="Atl Umarizeiro F.C"
-        team1Img="https://res.cloudinary.com/dq0dfseeu/image/upload/v1785979403/campoGrande_jrqot0.png"
-        team2Img="https://res.cloudinary.com/dq0dfseeu/image/upload/v1785979380/umarizeiro_udaeew.png"
-      />
+      <MatchCard 
+      competition="Amistoso"
+      homeTeam="Campo Grande F.C"
+      homeLogo="https://res.cloudinary.com/dq0dfseeu/image/upload/v1785979403/campoGrande_jrqot0.png"
+      homeWins={0}
+      homeScore={0}
+      awayTeam="Umarizeiro F.C"
+      awayLogo="https://res.cloudinary.com/dq0dfseeu/image/upload/v1785979380/umarizeiro_udaeew.png"
+      awayWins={0}
+      awayScore={0}/>
 
       <div className="flex text-gray-300 items-center gap-5 text-md justify-center">
         <IoIosArrowBack />
@@ -72,6 +82,7 @@ export default function MatchesPage() {
         <p>3</p>
         <IoIosArrowForward />
       </div>
+      
     </div>
   );
 }

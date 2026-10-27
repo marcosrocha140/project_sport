@@ -41,16 +41,24 @@ export async function requireAuth() {
 }
 
 
-export async function requireRole(role: string) {
-    const user = await requireAuth();
+export async function requireRole(role: string | string[]) {
+  const user = await requireAuth();
 
-    console.log("USUÁRIO:", user);
-    console.log("TIPO DO USUÁRIO:", user.tipo);
-    console.log("TIPO ESPERADO:", role);
+  const roles = Array.isArray(role) ? role : [role];
 
-    if(user.tipo !== role){
-        throw new Error("Sem premissão");
-    }
-    
-    return user;
+  if (!roles.includes(user.tipo)) {
+    throw new Error("Sem permissão");
+  }
+
+  return user;
+}
+
+export async function requireAdmin() {
+  const user = await requireAuth();
+
+  if (user.tipo !== "ADMIN" && user.tipo !== "Administrador") {
+    throw new Error("Sem permissão");
+  }
+
+  return user;
 }

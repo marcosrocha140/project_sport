@@ -21,6 +21,17 @@ export class ClubRepository {
       },
     });
   }
+
+  async findByName(nome: string) {
+    return prisma.clubes.findMany({
+      where: {
+        nome: {
+          contains: nome,
+          mode: "insensitive",
+        },
+      },
+    });
+  }
 }
 
 export const clubRepository = new ClubRepository();

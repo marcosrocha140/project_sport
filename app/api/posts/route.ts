@@ -28,9 +28,9 @@ export async function POST(request: Request) {
       );
     }
 
-    const post = await postRepository.create(result.data, user.id);
+    const post = await postRepository.create({ ...result.data, autor_id: user.id } as any);
 
-    return NextResponse.json("Dados Enviados!", { status: 201 });
+    return NextResponse.json(post, { status: 201 });
   } catch (error) {
     if (error instanceof Error && error.message === "Não autenticado") {
       return NextResponse.json(

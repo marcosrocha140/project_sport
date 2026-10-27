@@ -17,6 +17,8 @@ model clubes {
   criacao_do_clube DateTime  @db.Date
   data_criacao     DateTime? @default(now()) @db.Timestamp(6)
   cidade           String    @default("Quixadá") @db.VarChar(50)
+  banner           String?   @default("https://res.cloudinary.com/dq0dfseeu/image/upload/v1793023432/Silhueta_no_Campo_eyvx8k.png") @db.VarChar(255)
+  slogan           String?   @default("Sem Slogan/grito de guerra") @db.VarChar(100)
 }
 
 model posicao {

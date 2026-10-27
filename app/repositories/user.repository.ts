@@ -30,9 +30,17 @@ export class UserRepository {
             nome: data.nome,
             email: data.email,
             senha: data.senha,
-            tipo: data.tipo,
+            tipo: data.tipo || "USER",
             imagem: data.imagem,
         },
+    });
+  }
+
+  async findAll() {
+    return prisma.usuarios.findMany({
+      orderBy: {
+        id: "desc",
+      },
     });
   }
 }

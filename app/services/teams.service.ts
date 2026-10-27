@@ -1,4 +1,4 @@
-import { getAllTeams } from "@/app/repositories/teams.repository"
+import { getAllTeams } from "@/app/repositories/teams.repository";
 
 export async function listTeams() {
   const teams = await getAllTeams();

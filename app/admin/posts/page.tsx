@@ -65,7 +65,7 @@ export default async function PostCreatePage() {
             className="flex gap-1 p-0.5 w-full border border-gray-700 rounded-md bg-[#010a14]"
           >
             <img
-              src={post.imagem}
+              src={post.imagem || "https://res.cloudinary.com/dq0dfseeu/image/upload/v1786108869/postDistrital_pblzqk.png"}
               alt="Foto do post"
               className="w-20 rounded-md"
             />

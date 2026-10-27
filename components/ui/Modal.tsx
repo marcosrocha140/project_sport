@@ -2,7 +2,7 @@
 
 import * as Dialog from "@radix-ui/react-dialog";
 
-export function Modal({ open, onOpenChange, children }) {
+export function Modal({ open, onOpenChange, children }: { open: boolean; onOpenChange: (open: boolean) => void; children: React.ReactNode }) {
   return (
     <Dialog.Root open={open} onOpenChange={onOpenChange}>
       <Dialog.Portal>

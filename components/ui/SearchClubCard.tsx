@@ -20,7 +20,7 @@ export function SearchCardClub({clubImage, clubName, clubCity, clubCategory}:clu
           <img
             className="w-12 h-12 rounded-bl-md rounded-tl-md"
             src={clubImage}
-            alt="image clube"
+            alt={`Logo de ${clubName}`}
           />
           <div className="flex flex-col">
             <div className="flex items-center gap-1">

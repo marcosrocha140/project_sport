@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     
     <html lang="pt-BR" className='pt-16'>
-      <body className={roboto.variable}>{children}</body>
+      <body className={`${roboto.variable} antialiased`}>{children}</body>
     </html>
   );
 }

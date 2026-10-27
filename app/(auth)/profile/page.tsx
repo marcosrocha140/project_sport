@@ -1,5 +1,4 @@
 import { GiPositionMarker } from "react-icons/gi";
-import { GiGloves } from "react-icons/gi";
 import { MdOutlineMail } from "react-icons/md";
 import { MdOutlineEdit } from "react-icons/md";
 import { HiOutlineDotsVertical } from "react-icons/hi";
@@ -12,6 +11,7 @@ import { IoMdPhotos } from "react-icons/io";
 import { RiAdminFill } from "react-icons/ri";
 import { BackItem } from "@/components/ui/BackItem";
 import { requireAuth } from "@/app/lib/auth";
+import Link from "next/link";
 
 export default async function Profile() {
   const user = await requireAuth();
@@ -26,7 +26,7 @@ export default async function Profile() {
           <div>
             <img
               className="w-32 rounded-full border border-green-400"
-              src={user.imagem}
+              src={user.imagem || "https://res.cloudinary.com/dq0dfseeu/image/upload/v1786117781/mr_r5o0ia.png"}
               alt={`Foto ${user.nome}`}
             />
           </div>
@@ -39,15 +39,15 @@ export default async function Profile() {
               </h2>
               
               {
-                user.tipo === "Administrador" ? (
+                user.tipo === "ADMIN" || user.tipo === "Administrador" ? (
                   <p className="flex text-[13px] items-center gap-0.5 text-green-500">
                     <RiAdminFill />
-                    {user.tipo}
+                    Administrador
                   </p>
                 ) : (
                   <p className="flex text-[12px] items-center gap-0.5 text-green-500">
                     <GiSoccerField />
-                    L. Direito
+                    Jogador
                   </p>
                 )
               }
@@ -63,13 +63,24 @@ export default async function Profile() {
                   <GiPositionMarker className="text-green-400" /> Quixadá-CE
                 </p>
                 <p className="flex text-gray-300 text-[13px] gap-0.5 items-center">
-                  <FaInstagram className="text-green-400" /> wkerlyson_
+                  <FaInstagram className="text-green-400" /> conectar
                 </p>
               </div>
-              <p className="absolute text-[11px] bottom-0 right-0 rounded-md flex items-center gap-0.5 text-green-400 border-1 border-green-500 py-1 px-1">
-                <MdOutlineEdit />
-                Editar Perfil
-              </p>
+              <div className="absolute bottom-0 right-0 flex flex-col items-end gap-1">
+                <p className="text-[11px] rounded-md flex items-center gap-0.5 text-green-400 border border-green-500 py-1 px-1">
+                  <MdOutlineEdit />
+                  Editar Perfil
+                </p>
+                {(user.tipo === "ADMIN" || user.tipo === "Administrador") && (
+                  <Link
+                    href="/admin"
+                    className="text-[11px] rounded-md flex items-center gap-0.5 text-yellow-400 border border-yellow-500 py-1 px-1 hover:bg-yellow-500/10"
+                  >
+                    <RiAdminFill />
+                    Painel Admin
+                  </Link>
+                )}
+              </div>
             </div>
           </div>
         </div>

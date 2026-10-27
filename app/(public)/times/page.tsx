@@ -1,7 +1,7 @@
 import { clubRepository } from "@/app/repositories/club.repository";
 
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import { CardTeam } from "@/components/ui/CardTeam";
+import CardTeam from "@/components/ui/CardTeam";
 
 export default async function Times() {
   const clubes = await clubRepository.findAll();
@@ -27,8 +27,8 @@ export default async function Times() {
           <p className="text-center text-sm">
             Clubes cadastrados:{clubes.length}
           </p>
-          {clubes.map((clube) => (
-            <CardTeam key={clube.id} teamImg={clube.logo} teamName={clube.nome} teamCity={clube.cidade} teamCategory={clube.categoria}/>
+          {clubes.map((clube: any) => (
+            <CardTeam key={clube.id} id={clube.id} sport={clube.categoria || ""} logo={clube.logo} name={clube.nome} city={clube.cidade}/>
           ))}
         </section>
         <section className="flex text-gray-300 items-center gap-5 text-md justify-center">

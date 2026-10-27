@@ -52,6 +52,10 @@ export class UserService {
   async findById(id: number) {
     return userRepository.findById(id);
   }
+
+  async findAll() {
+    return userRepository.findAll();
+  }
 }
 
 export const userService = new UserService();

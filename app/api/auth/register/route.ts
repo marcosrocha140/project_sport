@@ -18,7 +18,7 @@ export async function POST(request: Request) {
   }
 
   try {
-    const user = await userService.register(result.data);
+    const user = await userService.register({ ...result.data, tipo: "USER", imagem: (result.data as any).imagem || "https://res.cloudinary.com/dq0dfseeu/image/upload/v1786117781/mr_r5o0ia.png" } as any);
 
     return NextResponse.json(
       {

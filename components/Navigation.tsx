@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { requireAuth } from "@/app/lib/auth";
 import { AiFillBell, AiOutlineMenu } from "react-icons/ai";
 import { FaSearch } from "react-icons/fa";
@@ -8,20 +9,20 @@ export async function Navigation() {
 
   return (
     <>
-      <nav className="w-full fixed top-0 left-0 z-3 h-18 sm:w-10/12 lg:w-full mx-auto flex items-center justify-between bg-[url('https://t4.ftcdn.net/jpg/09/24/25/73/360_F_924257314_9SS11wm6mf3s9uWMg8pZuCBNveZb3Xy2.jpg')] bg-black/80 p-1 text-white dark:text-black border-b border-green-600/20 dark:border-green-600/20 shadow-lg shadow-blue-400/20">
+      <nav className="w-full fixed top-0 left-0 z-50 h-18 sm:w-10/12 lg:w-full mx-auto flex items-center justify-between bg-[url('https://t4.ftcdn.net/jpg/09/24/25/73/360_F_924257314_9SS11wm6mf3s9uWMg8pZuCBNveZb3Xy2.jpg')] bg-black/80 p-1 text-white border-b border-green-600/20 shadow-lg shadow-blue-400/20">
         <div className="flex gap-1 items-center">
-          <img
+          <Image
             className="w-20 p-1.5"
             src="https://res.cloudinary.com/dq0dfseeu/image/upload/v1786118197/Logo_zj4dyx.png"
-            alt="Logo App"
+            alt="Logo Sport Interior"
+            width={80}
+            height={80}
           />
 
-          {user.tipo != "USER" ? (
+          {user.tipo !== "USER" && (
             <p className="flex items-center gap-0.5 bg-white text-[13px] px-0.5 uppercase rounded-xs font-extrabold text-green-950">
               {user.tipo}
             </p>
-          ) : (
-            <></>
           )}
 
           <h1 className="hidden md:block text-white font-bold text-2xl">
@@ -47,15 +48,18 @@ export async function Navigation() {
             >
               Times
             </Link>
-            <li className="rounded-b hover:border-b-[3px] border-[#06eeff]">
+            <Link
+              href="/campeonatos"
+              className="rounded-b hover:border-b-[3px] border-[#06eeff]"
+            >
               Campeonatos
-            </li>
+            </Link>
           </ul>
         </div>
 
-        <div className="w-[30%] hidden md:block flex items-center relative">
+        <div className="w-[30%] hidden md:flex items-center relative">
           <input
-            className="bg-amber-50 w-full rounded-xs hidden md:block p-2"
+            className="bg-amber-50 w-full rounded-xs p-2 text-black"
             type="search"
             placeholder="Pesquisar..."
           />
@@ -73,17 +77,19 @@ export async function Navigation() {
               4
             </p>
           </Link>
-          <img
-            className="w-12 border border-green-900 rounded-full"
-            src={user.imagem}
-            alt={`Foto do {user.nome}`}
+          <Image
+            className="w-12 h-12 border border-green-900 rounded-full"
+            src={user.imagem || "/favicon.ico"}
+            alt={`Foto de ${user.nome}`}
+            width={48}
+            height={48}
           />
         </div>
         <div className="hidden md:flex items-center justify-start pl-4 pr-2 py-1">
           <span className="absolute top-0 left-0 w-full h-full bg-white opacity-20 transform -skew-x-12 -translate-x-full group-hover:translate-x-0 transition duration-500"></span>
           <Link
             className="bg-green-600 text-white px-6 py-2 rounded-md relative overflow-hidden group"
-            href="login"
+            href="/login"
           >
             <span className="relative z-10 font-bold text-gray-200">Login</span>
           </Link>

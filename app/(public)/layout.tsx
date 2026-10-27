@@ -1,7 +1,5 @@
-import { Navbar } from "@/components/Navbar";
 import { NavBottom } from "@/components/NavBottom";
 import { Navigation } from "@/components/Navigation";
-
 
 export default function PublicLayout({
   children,
@@ -11,8 +9,8 @@ export default function PublicLayout({
   return (
     <>
       <Navigation />
-        <main className="mt-16">{children}</main>
-      <NavBottom/>
+      <main className="mt-16">{children}</main>
+      <NavBottom />
     </>
   );
 }

@@ -1,14 +1,14 @@
 
 interface SearchMatchCardProps{
-  nameClub1: String;
-  imageClub1: String;
+  nameClub1: string;
+  imageClub1: string;
   GoalsClub1: number;
-  nameClub2: String;
-  imageClub2: String;
+  nameClub2: string;
+  imageClub2: string;
   GoalsClub2: number;
-  dateMatch: String;
-  statusMatch: String;
-  categoryMatch: String
+  dateMatch: string;
+  statusMatch: string;
+  categoryMatch: string
 
 }
 

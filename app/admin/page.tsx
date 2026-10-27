@@ -9,7 +9,7 @@ import { FcLike } from "react-icons/fc";
 import { MdOutlineInsertComment, MdAddBox } from "react-icons/md";
 import { Modal } from "@/components/ui/Modal";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { BiHome } from "react-icons/bi";
 import { MdEditSquare } from "react-icons/md";
 import { FaUserGroup } from "react-icons/fa6";
@@ -92,11 +92,11 @@ export default function AdminPage() {
         />
         <div className="flex flex-col items-center">
           <img
-            className="w-12 rounded-full borderq"
+            className="w-12 rounded-full"
             src="https://res.cloudinary.com/dq0dfseeu/image/upload/v1786117781/mr_r5o0ia.png"
-            alt="Foto"
+            alt="Foto do administrador"
           />
-          <p className="text-gray-4002">Marcos R</p>
+          <p className="text-gray-400">Admin</p>
         </div>
       </div>
       <div>

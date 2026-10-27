@@ -23,7 +23,7 @@ export function NavBottom() {
   const inactiveClass = "text-[#8e9a96]";
 
   return (
-    <div className="bg-[url('https://t4.ftcdn.net/jpg/09/24/25/73/360_F_924257314_9SS11wm6mf3s9uWMg8pZuCBNveZb3Xy2.jpg')] w-full items-center justify-between px-4 py-1 flex fixed bottom-0">
+    <nav className="bg-[url('https://t4.ftcdn.net/jpg/09/24/25/73/360_F_924257314_9SS11wm6mf3s9uWMg8pZuCBNveZb3Xy2.jpg')] w-full items-center justify-between px-4 py-1 flex fixed bottom-0 z-50">
       <Modal open={open} onOpenChange={setOpen}>
         <PopupMenu />
       </Modal>
@@ -84,6 +84,6 @@ export function NavBottom() {
         <TfiMoreAlt />
         <p className="text-sm">Mais</p>
       </div>
-    </div>
+    </nav>
   );
 }

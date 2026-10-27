@@ -1,46 +1,67 @@
 "use client";
-import { usePathname } from "next/navigation";
+import { usePathname, useParams } from "next/navigation";
 import Link from "next/link";
 import { FaMapMarkerAlt } from "react-icons/fa";
-import { FaHeartCircleCheck } from "react-icons/fa6";
+import { FaHeart } from "react-icons/fa";
 import { FaCheckCircle } from "react-icons/fa";
 import { IoMdMale } from "react-icons/io";
 import { FaTrophy } from "react-icons/fa";
+import { useEffect, useState } from "react";
 
-export default function TimeLayout({ children }) {
+export default function TimeLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+  const params = useParams();
+  const [clube, setClube] = useState<any>(null);
+
+  useEffect(() => {
+    async function fetchClube() {
+      try {
+        const id = params?.id;
+        if (!id) return;
+        const res = await fetch(`/api/clubs/${id}`);
+        if (res.ok) {
+          const data = await res.json();
+          setClube(data);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    fetchClube();
+  }, [params?.id]);
 
   return (
-    <div className="bg-bottom bg-[url('https://www.dropbox.com/scl/fi/glo44z3phvrriyqfej569/teste10.png?rlkey=wr1e49zn3a50mkzgw42m2yo5s&st=so7cms3e&dl=1')]">
+    <div className="bg-gradient-to-b from-emerald-950/60 via-emerald-950/45 to-black/90">
       {/* HEADER */}
       <div className="w-full md:w-[90%] xl:w-[44%] mx-auto relative">
         <img
-          src="https://www.dropbox.com/scl/fi/gmd6hyqqtbj4q7vskyayh/milanBanner.png?rlkey=zflzpct9u0wu1covmsi9gvcr6&st=tikr13ea&dl=1"
+          src={clube?.banner}
           alt="Banner Clube"
+          className="w-full h-40 object-cover"
         />
 
         <div className="flex items-center gap-1 p-1 border-y border-[#ffffff49] bg-[#00000085] w-full font-bold absolute bottom-0">
           <img
-            className="w-10"
-            src="https://www.dropbox.com/scl/fi/2gsh8w5u8gmetx8tchrsl/milan.png?rlkey=tge6nchg2s3lleyf8ag9fc38b&st=29damq0k&dl=1"
+            className="w-10 h-10"
+            src={clube?.logo || "https://www.dropbox.com/scl/fi/2gsh8w5u8gmetx8tchrsl/milan.png?rlkey=tge6nchg2s3lleyf8ag9fc38b&st=29damq0k&dl=1"}
             alt="Foto Time"
           />
 
           <div className="flex items-center w-full justify-between">
             <div>
-              <h2 className="flex items-center gap-1 text-xl sm:text-2xl md:text-3xl uppercase font-extrabold">
-                A.E Milan F.C <FaCheckCircle className="text-green-500 bg-white rounded-full text-[13px]" />
+              <h2 className="flex items-center gap-1 truncate sm:text-2xl md:text-3xl uppercase font-extrabold">
+                {clube?.nome || "A.E Milan F.C"} <FaCheckCircle className="text-green-500 bg-white rounded-full text-[11px]" />
               </h2>
 
               <div className="flex items-center flex-wrap gap-2 font-medium text-[10px] sm:text-base">
                 <div className="flex gap-1 items-center">
                   <FaMapMarkerAlt />
-                  <p className="text-amber-100">Quixadá-CE</p>
+                  <p className="text-amber-100">{clube?.cidade || "Quixadá-CE"}</p>
                 </div>
 
                 <div className="flex gap-1 items-center">
                   <IoMdMale className="text-amber-500" />
-                  <p className="text-amber-100">Futebol</p>
+                  <p className="text-amber-100">{clube?.categoria || "Futebol"}</p>
                 </div>
 
                 <div className="flex gap-1 items-center">
@@ -51,8 +72,8 @@ export default function TimeLayout({ children }) {
             </div>
 
             <div className="text-[10px] flex items-center gap-1 border rounded-md p-1 font-medium hover:bg-blue-400 hover:cursor-pointer hover:text-black">
-              <FaHeartCircleCheck />
-              <p>2.3 mil curtidas</p>
+              <p>2.3 mil</p>
+              <FaHeart className="text-red-600" />
             </div>
           </div>
         </div>
@@ -95,7 +116,7 @@ export default function TimeLayout({ children }) {
       </div>
 
       {/* CONTEÚDO DINÂMICO */}
-      <div className="w-full md:w-[90%] xl:w-[44%] mx-auto p-2">{children}</div>
+      <div className="w-full md:w-[90%] xl:w-[44%] mx-auto p-2">{children as React.ReactNode}</div>
     </div>
   );
 }
