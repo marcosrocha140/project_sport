@@ -1,14 +1,12 @@
 import { FaRegCalendarAlt } from "react-icons/fa";
 import { BsBriefcaseFill } from "react-icons/bs";
 import { FaMapMarkerAlt } from "react-icons/fa";
-import { FaInstagramSquare } from "react-icons/fa";
-import { FaLinkedin } from "react-icons/fa6";
 import { BsTrophyFill } from "react-icons/bs";
 import { FaHandshake } from "react-icons/fa6";
 import { FcStatistics } from "react-icons/fc";
 import { TbWorld } from "react-icons/tb";
 
-export function CEOInfor() {
+export function CEOInfor({ clube }: { clube?: any }) {
   return (
     <section className="flex flex-col gap-2 mt-5">
       <div className="relative flex gap-1 p-1 border border-[#7ca376ce] rounded-md">
@@ -18,10 +16,9 @@ export function CEOInfor() {
           alt="Marcos Rocha Foto"
         />
         <div className="pl-28">
-          <h2 className="text-2xl">Marcos Rocha</h2>
-          <p className="text-[#75c26b]">CEO da Turnbull ACs</p>
-          <p className="text-[#75c26b]">Desde 2026</p>
-          
+          <h2 className="text-2xl">{clube?.nome_responsavel || "Marcos Rocha"}</h2>
+          <p className="text-[#75c26b]">CEO da {clube?.nome || "Turnbull ACs"}</p>
+          <p className="text-[#75c26b]">Desde {clube?.criacao_do_clube ? new Date(clube.criacao_do_clube).getFullYear() : clube?.data_criacao?.substring(0, 4) || "2026"}</p>
         </div>
       </div>
 
@@ -41,7 +38,7 @@ export function CEOInfor() {
 
             <div className="flex items-center gap-2">
               <FaMapMarkerAlt className="text-[#719b6b]"/>
-              <p>Cidade: <span className="text-[#75c26b]">Quixadá/CE</span></p>
+              <p>Cidade: <span className="text-[#75c26b]">{clube?.cidade || "Quixadá/CE"}</span></p>
             </div>
 
             <div className="flex items-center gap-2">

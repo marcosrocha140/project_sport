@@ -66,13 +66,13 @@ export default function TimeLayout({ children }: { children: React.ReactNode }) 
 
                 <div className="flex gap-1 items-center">
                   <FaTrophy className="text-yellow-400" />
-                  <p className="text-amber-100">14</p>
+                  <p className="text-amber-100">0</p>
                 </div>
               </div>
             </div>
 
-            <div className="text-[10px] flex items-center gap-1 border rounded-md p-1 font-medium hover:bg-blue-400 hover:cursor-pointer hover:text-black">
-              <p>2.3 mil</p>
+            <div className="flex items-center gap-1 p-1 font-medium hover:bg-blue-400 hover:cursor-pointer hover:text-black">
+              <p>1</p>
               <FaHeart className="text-red-600" />
             </div>
           </div>
@@ -82,7 +82,7 @@ export default function TimeLayout({ children }: { children: React.ReactNode }) 
       {/* NAV INTERNA */}
       <div className="w-full bg-[#0c1613] md:w-[90%] xl:w-[44%] mx-auto flex justify-between text-sm sm:text-base overflow-x-auto whitespace-nowrap">
         <Link
-          href="id/patrocinios"
+          href={`/times/${params?.id}/patrocinios`}
           className={`p-1 ${
             pathname.includes("patrocinios") ? "bg-green-400 text-black" : ""
           }`}
@@ -90,14 +90,17 @@ export default function TimeLayout({ children }: { children: React.ReactNode }) 
           Patrocínios
         </Link>
 
-        <Link href="jogadores" className={`p-1 ${
+        <Link
+          href={`/times/${params?.id}/jogadores`}
+          className={`p-1 ${
             pathname.includes("jogadores") ? "bg-green-400 text-black" : ""
-          }`}>
+          }`}
+        >
           Jogadores
         </Link>
 
         <Link
-          href="id/ceo"
+          href={`/times/${params?.id}/ceo`}
           className={`p-1 ${
             pathname.includes("ceo") ? "bg-green-400 text-black" : ""
           }`}
@@ -106,9 +109,9 @@ export default function TimeLayout({ children }: { children: React.ReactNode }) 
         </Link>
 
         <Link
-          href="id/jogosrecentes"
+          href={`/times/${params?.id}/jogosrecentes`}
           className={`p-1 ${
-            pathname.includes("jogosrecentes") ? "bg-green-400 text-white border-gray-950" : ""
+            pathname.includes("jogosrecentes") ? "bg-green-400 text-black" : ""
           }`}
         >
           Últimos Jogos

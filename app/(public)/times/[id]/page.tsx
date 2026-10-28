@@ -30,32 +30,32 @@ export default function TimeHome() {
         <p className="text-sm font-light">{clube?.slogan || "[slogan do clube]"}</p>
       </div>
       
-      <div>
+      <div className="flex flex-col">
         <div className="flex items-center justify-between">
           <p>Destaques</p>
           <p className="underline">Ver todos</p>
         </div>
 
-        <div className="grid grid-cols-2 items-center justify-center gap-0.5">
+        <div className="grid grid-cols-2 gap-0.5">
           <img
             className="w-40 rounded-md"
             src="https://res.cloudinary.com/dq0dfseeu/image/upload/v1793054405/registrosBanner_xxxkwt.png"
-            alt="video 1"
+            alt="imagem Destaque 1"
           />
           <img
             className="w-40 rounded-md"
             src="https://res.cloudinary.com/dq0dfseeu/image/upload/v1793054405/registrosBanner_xxxkwt.png"
-            alt="video 4"
+            alt="imagem Destaque 2"
           />
           <img
             className="w-40 rounded-md"
             src="https://res.cloudinary.com/dq0dfseeu/image/upload/v1793054405/registrosBanner_xxxkwt.png"
-            alt="video 2"
+            alt="imagem Destaque 3"
           />
           <img
             className="w-40 rounded-md"
             src="https://res.cloudinary.com/dq0dfseeu/image/upload/v1793054405/registrosBanner_xxxkwt.png"
-            alt="video 3"
+            alt="imagem Destaque 4"
           />
         </div>
       </div>

@@ -35,7 +35,7 @@ export default async function Profile() {
             <div>
               <h2 className="text-xl items-center font-semibold flex gap-1">
                 {user.nome}{" "}
-                <FaCircleCheck className="text-[11px] text-green-400 bg-white rounded-full" />
+                <FaCircleCheck className="text-[9px] text-blue-500 bg-white rounded-full" />
               </h2>
               
               {
@@ -93,7 +93,7 @@ export default async function Profile() {
               alt="Logo time"
             />
             <div>
-              <h2 className="flex items-center gap-1 uppercase text-[14px]">Várzea da Onça E.C<FaCircleCheck className="text-[9px] text-blue-500 bg-white rounded-full" /></h2>          
+              <h2 className="flex items-center gap-1 uppercase text-[14px]">Várzea da Onça E.C <FaCircleCheck className="text-[11px] text-green-400 bg-white rounded-full" /></h2>          
               <p className="font-light text-sm text-green-400">Clube atual</p>
             </div>
           </div>

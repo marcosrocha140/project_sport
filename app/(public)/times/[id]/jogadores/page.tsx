@@ -1,11 +1,34 @@
+"use client";
 import { PiChairFill } from "react-icons/pi";
 import { GiSoccerBall } from "react-icons/gi";
 import { CardPlayer } from "@/components/ui/CardPlayer";
 import { players } from "@/app/data/players";
+import { useParams } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function Page() {
+  const params = useParams();
+  const [clube, setClube] = useState<any>(null);
+
+  useEffect(() => {
+    async function fetchClube() {
+      try {
+        const id = params?.id;
+        if (!id) return;
+        const res = await fetch(`/api/clubs/${id}`);
+        if (res.ok) {
+          const data = await res.json();
+          setClube(data);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    fetchClube();
+  }, [params?.id]);
   return (
     <div>
+      <p className="text-sm text-gray-400 mb-2">Elenco - {clube?.nome || ""}</p>
       <h2 className="text-red-800 font-semibold text-xl flex gap-0.5 items-center">Titulares <GiSoccerBall/><span className="text-[10px]">11 jogadores</span></h2>
       <div className="flex overflow-x-auto gap-1">
         {

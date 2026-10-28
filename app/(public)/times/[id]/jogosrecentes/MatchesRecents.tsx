@@ -1,15 +1,37 @@
+"use client";
 import { IoMdClose } from "react-icons/io";
 import { FaCheck } from "react-icons/fa";
 import { IoIosFootball } from "react-icons/io";
 import { BsFillTrophyFill } from "react-icons/bs";
 import { GiPositionMarker } from "react-icons/gi";
 import { AiFillTablet } from "react-icons/ai";
+import { useParams } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export function MatchesRecents() {
+  const params = useParams();
+  const [clube, setClube] = useState<any>(null);
+
+  useEffect(() => {
+    async function fetchClube() {
+      try {
+        const id = params?.id;
+        if (!id) return;
+        const res = await fetch(`/api/clubs/${id}`);
+        if (res.ok) {
+          const data = await res.json();
+          setClube(data);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    fetchClube();
+  }, [params?.id]);
   return (
     <section className="px-1 py-3">
       <h2 className="text-xl md:text-4xl font-semibold">
-        Últimos<span className="font-light text-green-600"> Jogos</span>
+        Últimos<span className="font-light text-green-600"> Jogos</span> - {clube?.nome || ""}
       </h2>
       <hr className="py-2 text-gray-500" />
       <div className="flex items-center text-sm gap-2">

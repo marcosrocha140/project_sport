@@ -28,6 +28,7 @@ export interface CardProps {
   data_criacao?: string | null;
   autor: string;
   autorImage?: string | null;
+  categoria: string | null;
   imagemUserComment?: string | null;
 }
 

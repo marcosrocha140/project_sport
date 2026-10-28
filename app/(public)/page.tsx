@@ -29,6 +29,7 @@ export default async function HomePage() {
               {...post}
               autor={post.autor.nome}
               autorImage={post.autor.imagem}
+              categoria={post.autor.tipo}
               data_criacao={
                 post.data_criacao
                   ? new Date(post.data_criacao).toLocaleString("pt-BR", {
